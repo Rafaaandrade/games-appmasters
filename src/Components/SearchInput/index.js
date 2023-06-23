@@ -11,8 +11,8 @@ const SearchInput = () => {
     }
     return (
         <div style={{display: 'flex', marginTop:"10px"}}>
-            <TextField sx={{}} id="outlined-basic" label="Pesquise jogos" variant="outlined" onChange={handleChange} />
-            <Button variant="contained" sx={{}}>Buscar</Button>
+            <TextField sx={{marginLeft: '1em'}} id="outlined-basic" label="Pesquise jogos" variant="outlined" onChange={handleChange} />
+            <Button sx={{marginLeft: '1em'}}variant="contained">Buscar</Button>
         </div>
     )
 }
