@@ -66,7 +66,7 @@ export default function APIContextProvider({ children }) {
   const filterGenres = (genre) => {
     // console.log("genre", genre);
     const filter =
-      content.data && content.data.filter((c) => c.genre === genre  && content.searchedGame.genre !== c.genre);
+      content.data && content.data.filter((c) => c.genre === genre );
     // console.log("filtro genres", filter);
     setContent((prevState) => ({
       ...prevState,
