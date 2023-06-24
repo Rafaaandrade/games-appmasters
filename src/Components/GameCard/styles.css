@@ -1,0 +1,22 @@
+.actionArea {
+    transition: 0.2s;
+    border: 1px solid grey;
+}
+
+.actionArea:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.cardContent {
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.subContentArea {
+    display: flex;
+    justify-content: space-around;
+    margin-top: auto;
+}
+

@@ -4,6 +4,7 @@ import SearchInput from "../../Components/SearchInput";
 import { useAPIContext } from "../../Context/APIContext";
 import Loading from "../../Components/Loading";
 
+
 const Home = () => {
   const { content, getData, loading } = useAPIContext();
 

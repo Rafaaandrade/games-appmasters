@@ -7,7 +7,7 @@ const CardWrapper = () => {
 
   return (
     <div>
-      {content.genresFilter && (
+      {content.genresFilter || content.searchedGame ? (
         <Button
           sx={{
             display: "flex",
@@ -20,7 +20,7 @@ const CardWrapper = () => {
         >
           Voltar
         </Button>
-      )}
+      ): ""}
       <Grid
         container
         spacing={2}
@@ -37,6 +37,9 @@ const CardWrapper = () => {
                 genre={c.genre}
                 short_description={c.short_description}
                 thumbnail={c.thumbnail}
+                release_date={c.release_date}
+                platform={c.platform}
+                publisher={c.publisher}
               />
             </Grid>
           ))}
@@ -49,6 +52,9 @@ const CardWrapper = () => {
                 genre={c.genre}
                 short_description={c.short_description}
                 thumbnail={c.thumbnail}
+                release_date={c.release_date}
+                platform={c.platform}
+                publisher={c.publisher}
               />
             </Grid>
           ))}
@@ -61,6 +67,9 @@ const CardWrapper = () => {
                 genre={c.genre}
                 short_description={c.short_description}
                 thumbnail={c.thumbnail}
+                release_date={c.release_date}
+                platform={c.platform}
+                publisher={c.publisher}
               />
             </Grid>
           ))}

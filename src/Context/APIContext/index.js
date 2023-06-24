@@ -31,32 +31,21 @@ export default function APIContextProvider({ children }) {
       console.log("content.data", content.data);
     } catch (error) {
       if (error.code === "ECONNABORTED") {
-        // console.log("Request timeout");
         setError("O servidor demorou para responder, tente mais tarde");
       }
       if (error.status === 500 || 502 || 503 || 504 || 507 || 508 || 509) {
         setError("O servidor falhou em responder, tente recarregar a página");
-        // console.log(
-        //   "error 500+",
-        //   "O servidor fahou em responder, tente recarregar a página"
-        // );
       } else {
         setError(
           "O servidor não conseguirá responder por agora, tente voltar novamente mais tarde"
         );
-        // console.log(
-        //   "outros erros+",
-        //   "O servidor não conseguirá responder por agora, tente voltar novamente mais tarde"
-        // );
       }
     }
     setLoading(false);
   };
 
   const filterGame = (game) => {
-    console.log("game", game);
     const filter = content.data && content.data.filter((c) => c.title === game);
-    console.log("filtro", filter);
     setContent((prevState) => ({
       ...prevState,
       searchedGame: filter,
@@ -64,10 +53,8 @@ export default function APIContextProvider({ children }) {
   };
 
   const filterGenres = (genre) => {
-    // console.log("genre", genre);
     const filter =
-      content.data && content.data.filter((c) => c.genre === genre );
-    // console.log("filtro genres", filter);
+      content.data && content.data.filter((c) => c.genre === genre);
     setContent((prevState) => ({
       ...prevState,
       genresFilter: filter,
@@ -78,20 +65,29 @@ export default function APIContextProvider({ children }) {
     setContent((prevState) => ({
       ...prevState,
       genresFilter: "",
-      searchedGame: ""
+      searchedGame: "",
     }));
-  }
+  };
 
   const clearSearch = () => {
     setContent((prevState) => ({
       ...prevState,
-      searchedGame: ""
+      searchedGame: "",
     }));
-  }
+  };
 
   return (
     <APIContext.Provider
-      value={{ content, error, getData, loading, filterGame, filterGenres, clearFilter, clearSearch }}
+      value={{
+        content,
+        error,
+        getData,
+        loading,
+        filterGame,
+        filterGenres,
+        clearFilter,
+        clearSearch,
+      }}
     >
       {children}
     </APIContext.Provider>
@@ -99,8 +95,16 @@ export default function APIContextProvider({ children }) {
 }
 
 export function useAPIContext() {
-  const { content, error, getData, loading, filterGame, filterGenres, clearFilter, clearSearch } =
-    useContext(APIContext);
+  const {
+    content,
+    error,
+    getData,
+    loading,
+    filterGame,
+    filterGenres,
+    clearFilter,
+    clearSearch,
+  } = useContext(APIContext);
 
   return {
     content,
@@ -110,6 +114,6 @@ export function useAPIContext() {
     filterGame,
     filterGenres,
     clearFilter,
-    clearSearch
+    clearSearch,
   };
 }
