@@ -8,7 +8,7 @@ import Loading from "../../Components/Loading";
 const Home = () => {
   const { content, getData, loading } = useAPIContext();
 
-  //Ao montar o componente, verifica se existe algum dado no context, caso não tenha, chama a API para preencher os dados
+  //Ao montar o componente, verifica se existe algum dado no context, caso não tenha, chama a API para buscar dados dos jogos
   useEffect(() => {
     if (content.data == "") getData();  
   });

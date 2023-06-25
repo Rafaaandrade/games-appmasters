@@ -14,7 +14,7 @@ const SearchInput = () => {
     filterGame(value);
   };
   return (
-    <div style={{ display: "flex" }}>
+    <div style={{ display: "flex", marginBottom: "10px"}}>
       <TextField
         sx={{ marginLeft: "1em", marginTop: "10px" }}
         label="Pesquise jogos"

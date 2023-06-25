@@ -10,39 +10,44 @@ const GameCard = ({
   platform,
   short_description,
 }) => {
-  const { filterGenres, filterGame, clearSearch, content } = useAPIContext();
+  const { filterGenres, clearSearch } = useAPIContext();
 
   const handleFilter = (ev) => {
     const genre = ev.target.textContent;
     filterGenres(genre);
+    window.scroll(0, 0);
     clearSearch();
   };
 
   return (
     <>
-      <Card
-        className="actionArea"
-        sx={{ maxWidth: 500,}}
-      >
+      <Card className="actionArea">
         <CardMedia
           sx={{
             height: 250,
-            minWidth: { sm: 250, md: 400, xl: 500 },
-            maxWidth: { md: 500, sm: 400 },
           }}
           image={thumbnail}
           title={title}
         />
-        <CardContent sx={{minWidth: 500}}>
-          <Typography gutterBottom variant="h5" component="div">
-            {title} <Chip label={genre} onClick={handleFilter} />
+        <CardContent
+          sx={{ "&:last-child": { pb: 0, p: 0 } }}
+          className="cardContent"
+        >
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="div"
+            className="title"
+          >
+            {title}
+            <Chip label={genre} onClick={handleFilter} variant="outlined" />
           </Typography>
           <Typography variant="body2">{short_description}</Typography>
-          <div>
-            <Typography variant="body2">
+          <div className="subContentArea">
+            <Typography variant="subtitle2">
               Data de lançamento: {release_date}
             </Typography>
-            <Typography variant="body2">Plataforma: {platform}</Typography>
+            <Typography variant="subtitle2">Plataforma: {platform}</Typography>
           </div>
         </CardContent>
       </Card>

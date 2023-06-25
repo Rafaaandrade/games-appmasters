@@ -9,12 +9,12 @@ const CardWrapper = () => {
     <div>
       {content.genresFilter || content.searchedGame ? (
         <Button
-          sx={{
-            display: "flex",
-            marginLeft: "1em",
-            marginTop: "1em",
-            backgroundColor: "red",
-          }}
+        sx={{
+          display: "flex",
+          marginLeft: "1em",
+          marginTop: "1em",
+          backgroundColor: "red",
+        }}
           variant="contained"
           onClick={clearFilter}
         >

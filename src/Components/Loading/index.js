@@ -1,10 +1,12 @@
 import { CircularProgress } from "@mui/material";
 import { useAPIContext } from "../../Context/APIContext";
+import "./styles.css";
 
 const Loading = () => {
   const { error } = useAPIContext();
+  
   return (
-    <div>
+    <div className="loading">
       {!error && (
         <div>
           <p>Carregando</p>
