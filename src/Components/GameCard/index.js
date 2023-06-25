@@ -21,7 +21,7 @@ const GameCard = ({
 
   return (
     <>
-      <Card className="actionArea">
+      <Card className="actionArea" sx={{ backgroundColor: "lightgray" }}>
         <CardMedia
           sx={{
             height: 250,
@@ -30,7 +30,9 @@ const GameCard = ({
           title={title}
         />
         <CardContent
-          sx={{ "&:last-child": { pb: 0, p: 0 } }}
+          sx={{
+            "&:last-child": { pb: 0, p: 0 },
+          }}
           className="cardContent"
         >
           <Typography
